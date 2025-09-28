@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://crcohouwfl6pu"]
+
+[ext_resource type="PackedScene" uid="uid://cfrxkn5a88mr8" path="res://models/mech.glb" id="1_7iq05"]
+[ext_resource type="Material" uid="uid://1wgyfip271cp" path="res://materials/pixel_art.tres" id="2_qrhul"]
+
+[node name="mech" instance=ExtResource("1_7iq05")]
+
+[node name="foot_topAngle" parent="." index="0"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="foot_default" parent="." index="1"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="foot_topAngle2" parent="." index="2"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="leg_double" parent="." index="3"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="foot_default2" parent="." index="4"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="leg_pipes" parent="." index="5"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="pelvis_shield" parent="." index="6"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="pelvis_jointSlant" parent="." index="7"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="pelvis_jointSlant2" parent="." index="8"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="shoulder_angle" parent="." index="9"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="head_knightWings_" parent="." index="10"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="detail_railDouble_" parent="." index="11"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="chest_body" parent="." index="12"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="weapon_turretSmall" parent="." index="13"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="weapon_turretSmall2" parent="." index="14"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="shoulder_angle2" parent="." index="15"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="leg_double2" parent="." index="16"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="leg_pipes2" parent="." index="17"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="leg_shield" parent="." index="18"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="leg_shield2" parent="." index="19"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="leg_cover" parent="." index="20"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="leg_cover2" parent="." index="21"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="blaster_handleGuard" parent="." index="22"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="blaster_handleGuard2" parent="." index="23"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="foot_topAngle3" parent="." index="24"]
+material_overlay = ExtResource("2_qrhul")
+
+[node name="tank_doubleDetailed" parent="." index="25"]
+material_overlay = ExtResource("2_qrhul")

@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dlorkmcjfp4vn"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bx3seoxko2mt3"]
 
 [ext_resource type="Shader" uid="uid://b8eltmp3463xh" path="res://shaders/edge_detection.gdshader" id="1_7pvxm"]
 

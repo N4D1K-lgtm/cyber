@@ -1,17 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmatjv0bdq1qu"]
+[gd_scene load_steps=10 format=3 uid="uid://dmatjv0bdq1qu"]
 
-[ext_resource type="Shader" uid="uid://b8eltmp3463xh" path="res://shaders/edge_detection.gdshader" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cfrxkn5a88mr8" path="res://models/mech.glb" id="1_ig7tw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
-render_priority = 0
-shader = ExtResource("1_0xm2m")
-shader_parameter/shadows_enabled = true
-shader_parameter/highlights_enabled = true
-shader_parameter/shadow_strength = 0.4
-shader_parameter/highlight_strength = 0.1
-shader_parameter/highlight_color = Color(1, 1, 1, 1)
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
+[ext_resource type="Material" uid="uid://bx3seoxko2mt3" path="res://materials/edge_detection.tres" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://br6usri68xym3" path="res://models/mech.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dxcc1njni138g" path="res://scripts/postprocessing_quad_setup.gd" id="3_1bvp3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ig7tw"]
 viewport_path = NodePath("SubViewport")
@@ -26,6 +17,11 @@ ambient_light_energy = 0.78
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4gnqm"]
 
+[sub_resource type="Compositor" id="Compositor_lquwl"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
+material = ExtResource("1_h2yge")
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -33,12 +29,17 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_h2yge")
+material = ExtResource("1_h2yge")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -6.0
+offset_right = -21.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("ViewportTexture_ig7tw")
@@ -52,15 +53,23 @@ camera_attributes = SubResource("CameraAttributesPractical_4gnqm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.8892488, 0.4574239, 0, -0.4574239, 0.8892488, -16.47589, 32.99114, 18.193008)
+light_energy = 0.931
+
+[node name="mech" parent="SubViewport" instance=ExtResource("2_0xm2m")]
+transform = Transform3D(-0.8164702, 0, -0.5773876, 0, 1, 0, 0.5773876, 0, -0.8164702, -0.54279536, -5.0107894, -8.027074)
 
 [node name="CameraRig" type="Node3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport/CameraRig"]
-transform = Transform3D(1, -4.656613e-10, 0, 0, 1, 5.9604645e-08, 0, -8.940697e-08, 1, -0.018206567, 3.4739413, 3.726362)
+transform = Transform3D(1, -4.656613e-10, 0, 0, 1, 5.9604645e-08, 0, -8.940697e-08, 1, 0, 0, 0)
+compositor = SubResource("Compositor_lquwl")
 projection = 1
 fov = 80.6
 size = 12.0
 
-[node name="mech" parent="SubViewport" instance=ExtResource("1_ig7tw")]
-transform = Transform3D(-0.9398, 0, -0.3417249, 0, 1, 0, 0.3417249, 0, -0.9398, -0.3124168, 0, -3.8621569)
+[node name="PostProcessing_Quad" type="MeshInstance3D" parent="SubViewport/CameraRig/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
+mesh = SubResource("QuadMesh_7mycd")
+skeleton = NodePath("../../..")
+script = ExtResource("3_1bvp3")
