@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmatjv0bdq1qu"]
+
+[ext_resource type="Shader" uid="uid://b8eltmp3463xh" path="res://shaders/edge_detection.gdshader" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cfrxkn5a88mr8" path="res://models/mech.glb" id="1_ig7tw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+render_priority = 0
+shader = ExtResource("1_0xm2m")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ig7tw"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Sky" id="Sky_60t4w"]
+
+[sub_resource type="Environment" id="Environment_xits5"]
+sky = SubResource("Sky_60t4w")
+sky_custom_fov = 7.0
+ambient_light_color = Color(0.41673592, 0.41360846, 0.21369049, 0.7058824)
+ambient_light_energy = 0.78
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4gnqm"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_h2yge")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_ig7tw")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(640, 360)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
+environment = SubResource("Environment_xits5")
+camera_attributes = SubResource("CameraAttributesPractical_4gnqm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.8892488, 0.4574239, 0, -0.4574239, 0.8892488, -16.47589, 32.99114, 18.193008)
+
+[node name="CameraRig" type="Node3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/CameraRig"]
+transform = Transform3D(1, -4.656613e-10, 0, 0, 1, 5.9604645e-08, 0, -8.940697e-08, 1, -0.018206567, 3.4739413, 3.726362)
+projection = 1
+fov = 80.6
+size = 12.0
+
+[node name="mech" parent="SubViewport" instance=ExtResource("1_ig7tw")]
+transform = Transform3D(-0.9398, 0, -0.3417249, 0, 1, 0, 0.3417249, 0, -0.9398, -0.3124168, 0, -3.8621569)

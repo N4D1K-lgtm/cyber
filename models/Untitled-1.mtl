@@ -1,0 +1,11 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl shield(Clone)
+Kd 0.18 0.196 0.259
+
+newmtl custom12(Clone)
+Kd 0.64 0.219 0.862
+
+newmtl stoneDark(Clone)
+Kd 0.276 0.244 0.39
+

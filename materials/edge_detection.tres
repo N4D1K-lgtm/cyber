@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dlorkmcjfp4vn"]
+
+[ext_resource type="Shader" uid="uid://b8eltmp3463xh" path="res://shaders/edge_detection.gdshader" id="1_7pvxm"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7pvxm")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
