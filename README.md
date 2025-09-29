@@ -1,3 +1,3 @@
 # Cyber Game Prototype
 
-![yo](/materials/palette_analysis.png/)
+![yo](./docs/assets/palette_analysis.png)

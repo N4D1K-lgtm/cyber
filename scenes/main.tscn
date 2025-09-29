@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmatjv0bdq1qu"]
+[gd_scene load_steps=9 format=3 uid="uid://dmatjv0bdq1qu"]
 
 [ext_resource type="Material" uid="uid://bx3seoxko2mt3" path="res://materials/edge_detection.tres" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://di6waxrq18qqb" path="res://scenes/guns/sniper/sniper.tscn" id="3_jyhfs"]
@@ -7,6 +7,8 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ig7tw"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Environment" id="Environment_jyhfs"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4gnqm"]
 
@@ -34,6 +36,7 @@ texture = SubResource("ViewportTexture_ig7tw")
 size = Vector2i(640, 360)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
+environment = SubResource("Environment_jyhfs")
 camera_attributes = SubResource("CameraAttributesPractical_4gnqm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
