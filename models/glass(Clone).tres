@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://7dr6lc6tntiq"]
+
+[resource]
+resource_name = "glass(Clone)"
+metallic = 0.5
+roughness = 0.85
