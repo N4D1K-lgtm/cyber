@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b81gvcjolp366"]
+
+[ext_resource type="PackedScene" uid="uid://cfrxkn5a88mr8" path="res://scenes/mechs/mech.glb" id="1_lgcwo"]
+
+[node name="Gunner" type="Node3D"]
+
+[node name="mech" parent="." instance=ExtResource("1_lgcwo")]

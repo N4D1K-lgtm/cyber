@@ -1,0 +1,18 @@
+# Made using Asset Forge (2.5.2)
+
+:materials
+
+[name:metalDark;color:RGBA(0.000, 0.655, 0.486, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.35;valueB:0.5;]
+[name:_defaultMat;color:RGBA(0.710, 0.702, 0.839, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.35;valueB:0.25;]
+[name:dark;color:RGBA(0.224, 0.235, 0.275, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.35;valueB:0;]
+
+:models
+
+[name:;collection:Blasters;type:clip_small;position:(0.0000, -0.2000, 0.4000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark;]
+[name:;collection:Blasters;type:detailTargetSight;position:(0.0000, 1.0000, 0.6200);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark;]
+[name:;collection:Blasters;type:scope_small;position:(0.0000, 1.0000, -0.2000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:_defaultMat+metalDark+dark;]
+[name:;collection:Blasters;type:stock_assault;position:(0.0000, 0.0000, -1.8200);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark+metalDark+_defaultMat;]
+[name:;collection:Blasters;type:mediumBlaster_handleGuardSmall;position:(0.0000, 0.0000, -0.8200);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:_defaultMat+metalDark+dark;]
+[name:;collection:Blasters;type:mediumBlaster_barrelLarge;position:(0.0000, 0.0000, 0.8200);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:metalDark+_defaultMat+dark;]
+[name:;collection:Blasters;type:largeBlaster_handleGuard;position:(0.0000, 0.0000, 0.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 0.6400);group:;locked:False;hidden:False;materials:metalDark+dark+_defaultMat;]
+[name:;collection:Blasters;type:clipBarrel;position:(0.0000, -0.2000, 0.2000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:metalDark+dark;]
