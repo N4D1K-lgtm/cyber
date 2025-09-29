@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bsonpbaqxdtkr"
-path="res://.godot/imported/pistol.glb-f8555d99715749718696641edd8b411c.scn"
+uid="uid://cl5xus4bm4f0n"
+path="res://.godot/imported/smg.glb-74c11731fa989e3e1d9b856b793c7293.scn"
 
 [deps]
 
-source_file="res://scenes/guns/pistol/pistol.glb"
-dest_files=["res://.godot/imported/pistol.glb-f8555d99715749718696641edd8b411c.scn"]
+source_file="res://scenes/guns/smg/smg.glb"
+dest_files=["res://.godot/imported/smg.glb-74c11731fa989e3e1d9b856b793c7293.scn"]
 
 [params]
 
@@ -41,8 +41,8 @@ _subresources={
 "materials": {
 "_defaultMat(Clone)": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/colors/white.tres",
-"use_external/path": "uid://cuscawkjicbbo"
+"use_external/fallback_path": "res://materials/colors/pink_bright.tres",
+"use_external/path": "uid://dsqp162xiitu7"
 },
 "dark(Clone)": {
 "use_external/enabled": true,
@@ -51,8 +51,8 @@ _subresources={
 },
 "metalDark(Clone)": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/colors/black.tres",
-"use_external/path": "uid://cxx4kmk1nio7l"
+"use_external/fallback_path": "res://materials/colors/light_blue_bright.tres",
+"use_external/path": "uid://dfp1nj1jm308d"
 }
 }
 }

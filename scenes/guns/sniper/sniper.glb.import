@@ -46,8 +46,8 @@ _subresources={
 },
 "glass(Clone)": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/colors/white.tres",
-"use_external/path": "uid://cuscawkjicbbo"
+"use_external/fallback_path": "res://materials/colors/gray_dark.tres",
+"use_external/path": "uid://ckhhc241eq2q3"
 }
 }
 }

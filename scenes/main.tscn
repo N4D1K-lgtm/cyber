@@ -1,25 +1,77 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmatjv0bdq1qu"]
+[gd_scene load_steps=17 format=3 uid="uid://dmatjv0bdq1qu"]
 
-[ext_resource type="Material" uid="uid://bx3seoxko2mt3" path="res://materials/edge_detection.tres" id="1_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://di6waxrq18qqb" path="res://scenes/guns/sniper/sniper.tscn" id="3_jyhfs"]
-[ext_resource type="Script" uid="uid://dxcc1njni138g" path="res://scripts/postprocessing_quad_setup.gd" id="3_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dhq23eiytekl5" path="res://scenes/mechs/gunner.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://d0u25gnckk405" path="res://scenes/objects/proto.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dx34ee3j7dd4v" path="res://scenes/player/Player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cbgedt0davogt" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://bvlsjsvtr0137" path="res://addons/vaporwavesky/vaporwave_sky_material.gd" id="4_tbgi4"]
+[ext_resource type="Shader" uid="uid://dn4mt61v2k4je" path="res://addons/vaporwavesky/vaporwave.gdshader" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://m0je1mskr3kh" path="res://scenes/guns/flamethrower/flamethrower.tscn" id="6_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bw7b037awx6fd" path="res://scenes/guns/lmg/lmg.tscn" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://bc0vu26mdhk68" path="res://scenes/guns/shotgun/shotgun.tscn" id="8_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://di6waxrq18qqb" path="res://scenes/guns/sniper/sniper.tscn" id="9_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bde7r875r08ro" path="res://scenes/guns/pistol/pistol.tscn" id="10_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cl5xus4bm4f0n" path="res://scenes/guns/smg/smg.glb" id="11_eb6dy"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ig7tw"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
+shader = ExtResource("5_tefeu")
+shader_parameter/sky_color = Color(0.1, 0.07, 0.2, 1)
+shader_parameter/sky_horizon_color = Color(0.56, 0.18, 0.42, 1)
+shader_parameter/sky_horizon_decay = 3.0
+shader_parameter/ground_color = Color(0, 0, 0, 1)
+shader_parameter/ground_horizon_color = Color(0.1, 0, 0.07, 1)
+shader_parameter/ground_horizon_decay = 1.0
+shader_parameter/stars_enabled = true
+shader_parameter/stars_below_horizon = false
+shader_parameter/star_color = Color(0.95, 0.9, 0.6, 1)
+shader_parameter/star_radius = 0.3
+shader_parameter/star_density = 5.0
+shader_parameter/star_randomness = 1.0
+shader_parameter/star_seed = Vector2(0, 0)
+shader_parameter/grid_enabled = true
+shader_parameter/grid_color = Color(0.18, 0.92, 0.74, 1)
+shader_parameter/grid_depth = 2.0
+shader_parameter/grid_spacing = 1.0
+shader_parameter/grid_thickness = 0.03
+shader_parameter/grid_max_distance = 25.0
+shader_parameter/grid_max_distance_fade = 0.3
+shader_parameter/grid_energy = 1.0
+shader_parameter/sun_radius = 10.0
+shader_parameter/sun_smoothing = 0.35
+shader_parameter/sun_glow_color = Color(0.96, 0.9, 0.35, 1)
+shader_parameter/sun_glow_radius = 30.0
+shader_parameter/sun_glow_intensity = 0.5
+shader_parameter/sun_gradient_enabled = true
+shader_parameter/sun_color_1 = Color(0.96, 0.9, 0.35, 1)
+shader_parameter/sun_color_2 = Color(0.96, 0.35, 0.9, 1)
+shader_parameter/sun_gradient_pos_frac = 0.6
+shader_parameter/sun_gradient_span_frac = 0.8
+shader_parameter/sun_banding_enabled = true
+shader_parameter/sun_banding_base_gap = 0.03
+shader_parameter/sun_banding_gap_mul = 1.1
+shader_parameter/sun_banding_stop_height = 0.7
+shader_parameter/sun_banding_thickness = 0.01
+script = ExtResource("4_tbgi4")
+metadata/_custom_type_script = "uid://bvlsjsvtr0137"
+
+[sub_resource type="Sky" id="Sky_tipki"]
+sky_material = SubResource("ShaderMaterial_o6xl0")
+
 [sub_resource type="Environment" id="Environment_jyhfs"]
+background_mode = 2
+sky = SubResource("Sky_tipki")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4gnqm"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
-material = ExtResource("1_tbgi4")
 
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 1
+script = ExtResource("1_sugp2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -30,37 +82,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = SubResource("ViewportTexture_ig7tw")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(640, 360)
+size = Vector2i(1280, 720)
+
+[node name="proto" parent="SubViewport" instance=ExtResource("1_0wfyh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -2, 0)
+
+[node name="Player" parent="SubViewport" instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.199331)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
 environment = SubResource("Environment_jyhfs")
 camera_attributes = SubResource("CameraAttributesPractical_4gnqm")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -0.0013438896, 0.9999991, 0, -0.9999991, -0.0013438896, 9.178489, 18.078125, 0.5458574)
+visible = false
+spot_range = 17.986494
+spot_attenuation = -0.5
+spot_angle = 10.168414
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+light_energy = 2.531
 
-[node name="CameraRig" type="Node3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.9396925, 0.3420201, 0, -0.3420201, 0.9396925, 0, 7, 0)
+[node name="Node3D" type="Node3D" parent="SubViewport"]
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport/CameraRig"]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 5.9604645e-08, 0, -8.940697e-08, 1.0000001, -0.0024909973, -0.026315212, 0.072304726)
-projection = 1
-fov = 40.0
-size = 12.0
+[node name="flamethrower" parent="SubViewport/Node3D" instance=ExtResource("6_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.475419, 0, 0)
 
-[node name="PostProcessing_Quad" type="MeshInstance3D" parent="SubViewport/CameraRig/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
-mesh = SubResource("QuadMesh_7mycd")
-skeleton = NodePath("../../..")
-script = ExtResource("3_o6xl0")
+[node name="Sniper" parent="SubViewport/Node3D" instance=ExtResource("9_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.226747, 0, 0)
 
-[node name="Marker3D" type="Marker3D" parent="SubViewport/CameraRig/Camera3D/PostProcessing_Quad"]
+[node name="shotgun" parent="SubViewport/Node3D" instance=ExtResource("8_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96259, 0, 0)
 
-[node name="Sniper" parent="SubViewport" instance=ExtResource("3_jyhfs")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -6.9999995, 0, -7)
+[node name="lmg" parent="SubViewport/Node3D" instance=ExtResource("7_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.793536, 0, 0)
 
-[node name="Gunner" parent="SubViewport" instance=ExtResource("3_sugp2")]
-transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, 0, 0, -8.07926)
+[node name="pistol" parent="SubViewport/Node3D" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.17876, 0, 0)
+
+[node name="smg" parent="SubViewport/Node3D" instance=ExtResource("11_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.371745, 0, 0)

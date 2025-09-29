@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bsonpbaqxdtkr"
-path="res://.godot/imported/pistol.glb-f8555d99715749718696641edd8b411c.scn"
+uid="uid://cfrxkn5a88mr8"
+path="res://.godot/imported/gunner.glb-d2aab9b4017f7065fee948494e456e34.scn"
 
 [deps]
 
-source_file="res://scenes/guns/pistol/pistol.glb"
-dest_files=["res://.godot/imported/pistol.glb-f8555d99715749718696641edd8b411c.scn"]
+source_file="res://scenes/mechs/gunner/gunner.glb"
+dest_files=["res://.godot/imported/gunner.glb-d2aab9b4017f7065fee948494e456e34.scn"]
 
 [params]
 
@@ -36,7 +36,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
-materials/extract_path=""
+materials/extract_path="res://materials"
 _subresources={
 "materials": {
 "_defaultMat(Clone)": {
@@ -46,13 +46,13 @@ _subresources={
 },
 "dark(Clone)": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/colors/black.tres",
-"use_external/path": "uid://cxx4kmk1nio7l"
+"use_external/fallback_path": "res://materials/colors/cyan.tres",
+"use_external/path": "uid://crpghhlkyuyrj"
 },
-"metalDark(Clone)": {
+"metalOrange(Clone)": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/colors/black.tres",
-"use_external/path": "uid://cxx4kmk1nio7l"
+"use_external/fallback_path": "res://materials/colors/brown.tres",
+"use_external/path": "uid://d14qw6yft1gho"
 }
 }
 }

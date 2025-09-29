@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cfrxkn5a88mr8"
-path="res://.godot/imported/mech.glb-3e8a8608c30d3623c44b721b62a11db8.scn"
+uid="uid://bht6oj5erg1sx"
+path="res://.godot/imported/proto.glb-002aadcda671f0501b086776c746cb59.scn"
 
 [deps]
 
-source_file="res://scenes/mechs/mech.glb"
-dest_files=["res://.godot/imported/mech.glb-3e8a8608c30d3623c44b721b62a11db8.scn"]
+source_file="res://scenes/objects/proto.glb"
+dest_files=["res://.godot/imported/proto.glb-002aadcda671f0501b086776c746cb59.scn"]
 
 [params]
 
@@ -36,23 +36,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
-materials/extract_path="res://materials"
+materials/extract_path=""
 _subresources={
 "materials": {
 "_defaultMat(Clone)": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/colors/white.tres",
-"use_external/path": "uid://cuscawkjicbbo"
-},
-"dark(Clone)": {
-"use_external/enabled": true,
 "use_external/fallback_path": "res://materials/colors/cyan.tres",
 "use_external/path": "uid://crpghhlkyuyrj"
-},
-"metalOrange(Clone)": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://materials/colors/brown.tres",
-"use_external/path": "uid://d14qw6yft1gho"
 }
 }
 }

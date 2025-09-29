@@ -1,12 +1,12 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cn2qxvvk4rrhm"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ckhhc241eq2q3"]
 
-[ext_resource type="Shader" uid="uid://cr7ndi7wk3tjp" path="res://shaders/pixel_art.gdshader" id="1_4lcf1"]
-[ext_resource type="Texture2D" uid="uid://bf7yaku2seokg" path="res://materials/Ramp.tres" id="2_ebngy"]
+[ext_resource type="Shader" uid="uid://cr7ndi7wk3tjp" path="res://shaders/pixel_art.gdshader" id="1_3jck6"]
+[ext_resource type="Texture2D" uid="uid://bf7yaku2seokg" path="res://materials/Ramp.tres" id="2_ed8v1"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_4lcf1")
-shader_parameter/albedo = Color(0.99215686, 0.99607843, 0.5372549, 1)
+shader = ExtResource("1_3jck6")
+shader_parameter/albedo = Color(0.39215687, 0.39215687, 0.39215687, 1)
 shader_parameter/clamp_diffuse_to_max = false
 shader_parameter/cuts = 3
 shader_parameter/wrap = 0.0
@@ -19,6 +19,6 @@ shader_parameter/use_rim = false
 shader_parameter/rim_width = 8.0
 shader_parameter/rim_color = Color(1, 1, 1, 1)
 shader_parameter/use_ramp = true
-shader_parameter/ramp = ExtResource("2_ebngy")
+shader_parameter/ramp = ExtResource("2_ed8v1")
 shader_parameter/use_borders = false
 shader_parameter/border_width = 0.01

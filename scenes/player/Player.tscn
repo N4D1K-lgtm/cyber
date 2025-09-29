@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://dx34ee3j7dd4v"]
+
+[ext_resource type="PackedScene" uid="uid://de0qw0ekldddp" path="res://scenes/mechs/gunner/gunner.tscn" id="1_4kuee"]
+[ext_resource type="Script" uid="uid://bs6tfvfgfqlqn" path="res://scenes/player/player.gd" id="1_tpg5x"]
+[ext_resource type="Material" uid="uid://bx3seoxko2mt3" path="res://materials/edge_detection.tres" id="2_524rm"]
+[ext_resource type="PackedScene" uid="uid://di6waxrq18qqb" path="res://scenes/guns/sniper/sniper.tscn" id="2_tpg5x"]
+[ext_resource type="PackedScene" uid="uid://bw7b037awx6fd" path="res://scenes/guns/lmg/lmg.tscn" id="3_npwbq"]
+[ext_resource type="Script" uid="uid://dxcc1njni138g" path="res://scripts/postprocessing_quad_setup.gd" id="3_tpg5x"]
+[ext_resource type="PackedScene" uid="uid://m0je1mskr3kh" path="res://scenes/guns/flamethrower/flamethrower.tscn" id="5_v42im"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c3xxp"]
+height = 1.6572266
+
+[sub_resource type="QuadMesh" id="QuadMesh_npwbq"]
+material = ExtResource("2_524rm")
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_tpg5x")
+
+[node name="Gunner" parent="." instance=ExtResource("1_4kuee")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.6572266, 0.2218023)
+shape = SubResource("CylinderShape3D_c3xxp")
+
+[node name="Camera Rig" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1549835, 0)
+
+[node name="MainCamera" type="Camera3D" parent="Camera Rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04050088, -0.37550044)
+size = 10.0
+near = 0.001
+
+[node name="WeaponsManager" type="Node3D" parent="Camera Rig/MainCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87015903, 0, 0)
+
+[node name="FPS_Rig" type="Node3D" parent="Camera Rig/MainCamera/WeaponsManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2851169, -1.4559004, -1.9796517)
+
+[node name="LMG" parent="Camera Rig/MainCamera/WeaponsManager/FPS_Rig" instance=ExtResource("3_npwbq")]
+visible = false
+
+[node name="Sniper" parent="Camera Rig/MainCamera/WeaponsManager/FPS_Rig" instance=ExtResource("2_tpg5x")]
+
+[node name="Flamethrower" parent="Camera Rig/MainCamera/WeaponsManager/FPS_Rig" instance=ExtResource("5_v42im")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera Rig/MainCamera/WeaponsManager/FPS_Rig"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera Rig/MainCamera"]
+mesh = SubResource("QuadMesh_npwbq")
+script = ExtResource("3_tpg5x")

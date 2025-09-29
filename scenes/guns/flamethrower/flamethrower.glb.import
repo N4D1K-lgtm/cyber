@@ -37,6 +37,24 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"_defaultMat(Clone)": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/colors/black.tres",
+"use_external/path": "uid://cxx4kmk1nio7l"
+},
+"dark(Clone)": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/colors/black.tres",
+"use_external/path": "uid://cxx4kmk1nio7l"
+},
+"metalDark(Clone)": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/colors/brown.tres",
+"use_external/path": "uid://d14qw6yft1gho"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

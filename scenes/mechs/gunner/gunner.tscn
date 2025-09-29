@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://de0qw0ekldddp"]
+
+[ext_resource type="PackedScene" uid="uid://cfrxkn5a88mr8" path="res://scenes/mechs/gunner/gunner.glb" id="1_q05bc"]
+
+[node name="Gunner" instance=ExtResource("1_q05bc")]
+
+[node name="blaster_handleGuard" parent="." index="0"]
+visible = false
+
+[node name="blaster_handleGuard2" parent="." index="25"]
+visible = false
