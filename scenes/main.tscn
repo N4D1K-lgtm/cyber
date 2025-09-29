@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmatjv0bdq1qu"]
+[gd_scene load_steps=9 format=3 uid="uid://dmatjv0bdq1qu"]
 
 [ext_resource type="Material" uid="uid://bx3seoxko2mt3" path="res://materials/edge_detection.tres" id="1_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://br6usri68xym3" path="res://scenes/mech.tscn" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://dxcc1njni138g" path="res://scripts/postprocessing_quad_setup.gd" id="3_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://tcpjvifh2h2a" path="res://scenes/base.tscn" id="4_tipki"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ig7tw"]
 viewport_path = NodePath("SubViewport")
@@ -55,15 +53,13 @@ camera_attributes = SubResource("CameraAttributesPractical_4gnqm")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.8892488, 0.4574239, 0, -0.4574239, 0.8892488, -16.47589, 32.99114, 18.193008)
 
-[node name="Mech" parent="SubViewport" instance=ExtResource("2_tefeu")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1.964915, 1.0456512, -8.027)
-
 [node name="CameraRig" type="Node3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 7, 1.2187757)
+transform = Transform3D(1, 0, 0, 0, 0.9396925, 0.3420201, 0, -0.3420201, 0.9396925, 0, 7, 1.2187757)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport/CameraRig"]
 transform = Transform3D(1, -4.656613e-10, 0, 0, 1, 5.9604645e-08, 0, -8.940697e-08, 1, 0, 0, 0)
 compositor = SubResource("Compositor_lquwl")
+projection = 1
 fov = 40.0
 size = 12.0
 
@@ -72,5 +68,3 @@ transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
 mesh = SubResource("QuadMesh_7mycd")
 skeleton = NodePath("../../..")
 script = ExtResource("3_o6xl0")
-
-[node name="base" parent="." instance=ExtResource("4_tipki")]

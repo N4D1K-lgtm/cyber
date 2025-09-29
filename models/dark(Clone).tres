@@ -1,6 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://ddc1xmffqgkau"]
-
-[resource]
-resource_name = "dark(Clone)"
-albedo_color = Color(0.136, 0.144, 0.17199999, 1)
-metallic = 0.35
