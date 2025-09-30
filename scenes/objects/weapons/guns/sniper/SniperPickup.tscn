@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgoi4qtf3q1q6"]
+
+[ext_resource type="PackedScene" uid="uid://bc5p2e18svour" path="res://scenes/objects/weapons/weapon_pickup_base.tscn" id="1_aetfl"]
+[ext_resource type="Resource" uid="uid://c24sbeypcfwu6" path="res://scenes/objects/weapons/guns/sniper/SniperWeaponData.tres" id="2_0iy8k"]
+[ext_resource type="PackedScene" uid="uid://di6waxrq18qqb" path="res://scenes/objects/weapons/guns/sniper/SniperModel.tscn" id="3_3mq36"]
+
+[node name="WeaponPickup" instance=ExtResource("1_aetfl")]
+weapon_data = ExtResource("2_0iy8k")
+
+[node name="Sniper" parent="VisualContainer" index="0" instance=ExtResource("3_3mq36")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)

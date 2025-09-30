@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://c24sbeypcfwu6"]
+
+[ext_resource type="Script" uid="uid://dqiffmjci11tk" path="res://scenes/objects/weapons/weapon_data.gd" id="1_05y2v"]
+[ext_resource type="PackedScene" uid="uid://di6waxrq18qqb" path="res://scenes/objects/weapons/guns/sniper/SniperModel.tscn" id="3_028yw"]
+
+[resource]
+script = ExtResource("1_05y2v")
+weapon_name = "Sniper"
+weapon_model = ExtResource("3_028yw")
+despawn_time = 15.0
+metadata/_custom_type_script = "uid://dqiffmjci11tk"

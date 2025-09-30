@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://it5c1qif0ppm"]
+
+[ext_resource type="Shader" uid="uid://da4waahr6jgjk" path="res://shaders/cyber_pickup.gdshader" id="1_oynw5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_oynw5")
+shader_parameter/albedo_alpha = 1.0
+shader_parameter/tint_color = Color(1, 0.49995556, 0, 0.27600002)
+shader_parameter/edge_color = Color(1, 0, 0, 1)
+shader_parameter/edge_power = 1.0
+shader_parameter/edge_size = 0.85300003725762
+shader_parameter/edge_intensity = 1.7550000833625
+shader_parameter/scanline_tint = Color(1, 0.5, 0, 1)
+shader_parameter/scanline_intensity = 1.5710000746225
+shader_parameter/scanline_density = 5.0
+shader_parameter/scanline_thickness = 1.0
+shader_parameter/scanline_spacing = 1.0
+shader_parameter/scanline_angle = 0.094000004465
+shader_parameter/scanline_speed = 0.2
+shader_parameter/enable_glitch = false
+shader_parameter/glitch_intensity = 0.5
+shader_parameter/shake_power = 0.5
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.5

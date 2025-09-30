@@ -1,16 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmatjv0bdq1qu"]
+[gd_scene load_steps=13 format=3 uid="uid://dmatjv0bdq1qu"]
 
 [ext_resource type="PackedScene" uid="uid://d0u25gnckk405" path="res://scenes/objects/proto.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dx34ee3j7dd4v" path="res://scenes/player/Player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbgedt0davogt" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://bvlsjsvtr0137" path="res://addons/vaporwavesky/vaporwave_sky_material.gd" id="4_tbgi4"]
 [ext_resource type="Shader" uid="uid://dn4mt61v2k4je" path="res://addons/vaporwavesky/vaporwave.gdshader" id="5_tefeu"]
-[ext_resource type="PackedScene" uid="uid://m0je1mskr3kh" path="res://scenes/guns/flamethrower/flamethrower.tscn" id="6_85g3d"]
-[ext_resource type="PackedScene" uid="uid://bw7b037awx6fd" path="res://scenes/guns/lmg/lmg.tscn" id="7_choun"]
-[ext_resource type="PackedScene" uid="uid://bc0vu26mdhk68" path="res://scenes/guns/shotgun/shotgun.tscn" id="8_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://di6waxrq18qqb" path="res://scenes/guns/sniper/sniper.tscn" id="9_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://bde7r875r08ro" path="res://scenes/guns/pistol/pistol.tscn" id="10_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://cl5xus4bm4f0n" path="res://scenes/guns/smg/smg.glb" id="11_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://dgoi4qtf3q1q6" path="res://scenes/objects/weapons/guns/sniper/SniperPickup.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://blo41nuvemq2u" path="res://scenes/objects/weapons/guns/pistol/PistolPickup.tscn" id="7_o6xl0"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ig7tw"]
 viewport_path = NodePath("SubViewport")
@@ -109,22 +105,8 @@ spot_angle = 10.168414
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 light_energy = 2.531
 
-[node name="Node3D" type="Node3D" parent="SubViewport"]
+[node name="WeaponPickup" parent="." instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2833614)
 
-[node name="flamethrower" parent="SubViewport/Node3D" instance=ExtResource("6_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.475419, 0, 0)
-
-[node name="Sniper" parent="SubViewport/Node3D" instance=ExtResource("9_eb6dy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.226747, 0, 0)
-
-[node name="shotgun" parent="SubViewport/Node3D" instance=ExtResource("8_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96259, 0, 0)
-
-[node name="lmg" parent="SubViewport/Node3D" instance=ExtResource("7_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.793536, 0, 0)
-
-[node name="pistol" parent="SubViewport/Node3D" instance=ExtResource("10_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.17876, 0, 0)
-
-[node name="smg" parent="SubViewport/Node3D" instance=ExtResource("11_eb6dy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.371745, 0, 0)
+[node name="WeaponPickup2" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)

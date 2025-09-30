@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc5p2e18svour"]
+
+[ext_resource type="Script" uid="uid://dtgsta82cexn4" path="res://scenes/objects/weapons/weapon_pickup.gd" id="1_khm3i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_66hwq"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_khm3i"]
+size = Vector3(5, 3, 5)
+
+[node name="WeaponPickup" type="RigidBody3D"]
+script = ExtResource("1_khm3i")
+
+[node name="VisualContainer" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_66hwq")
+
+[node name="InteractionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_khm3i")

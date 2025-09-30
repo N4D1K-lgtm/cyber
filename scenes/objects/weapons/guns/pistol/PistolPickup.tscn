@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://blo41nuvemq2u"]
+
+[ext_resource type="PackedScene" uid="uid://bc5p2e18svour" path="res://scenes/objects/weapons/weapon_pickup_base.tscn" id="1_wrnki"]
+[ext_resource type="PackedScene" uid="uid://bde7r875r08ro" path="res://scenes/objects/weapons/guns/pistol/pistol.tscn" id="2_5wnxh"]
+[ext_resource type="Resource" uid="uid://dj3ndx231rvqw" path="res://scenes/objects/weapons/guns/pistol/PistolWeaponData.tres" id="2_pdixg"]
+
+[node name="WeaponPickup" instance=ExtResource("1_wrnki")]
+weapon_data = ExtResource("2_pdixg")
+
+[node name="pistol" parent="VisualContainer" index="0" instance=ExtResource("2_5wnxh")]

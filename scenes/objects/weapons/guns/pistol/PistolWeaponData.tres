@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://dj3ndx231rvqw"]
+
+[ext_resource type="Script" uid="uid://dqiffmjci11tk" path="res://scenes/objects/weapons/weapon_data.gd" id="1_f7ykh"]
+[ext_resource type="PackedScene" uid="uid://bde7r875r08ro" path="res://scenes/objects/weapons/guns/pistol/pistol.tscn" id="2_vhwpo"]
+
+[resource]
+script = ExtResource("1_f7ykh")
+weapon_name = "Pistol"
+weapon_model = ExtResource("2_vhwpo")
+metadata/_custom_type_script = "uid://dqiffmjci11tk"
