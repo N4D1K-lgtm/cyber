@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MovementConfig" load_steps=2 format=3 uid="uid://msbx5phmdxom"]
+
+[ext_resource type="Script" uid="uid://c7cv5pih7iipv" path="res://scripts/movement/movement_config.gd" id="1_4l4b8"]
+
+[resource]
+script = ExtResource("1_4l4b8")
+metadata/_custom_type_script = "uid://c7cv5pih7iipv"

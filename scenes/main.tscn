@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://dmatjv0bdq1qu"]
 
-[ext_resource type="PackedScene" uid="uid://d0u25gnckk405" path="res://scenes/objects/proto.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dx34ee3j7dd4v" path="res://scenes/player/Player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbgedt0davogt" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://bvlsjsvtr0137" path="res://addons/vaporwavesky/vaporwave_sky_material.gd" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://codchgnpa1kp0" path="res://scenes/objects/PrototypeLevel.tscn" id="5_tbgi4"]
 [ext_resource type="Shader" uid="uid://dn4mt61v2k4je" path="res://addons/vaporwavesky/vaporwave.gdshader" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dgoi4qtf3q1q6" path="res://scenes/objects/weapons/guns/sniper/SniperPickup.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://blo41nuvemq2u" path="res://scenes/objects/weapons/guns/pistol/PistolPickup.tscn" id="7_o6xl0"]
@@ -58,6 +58,12 @@ sky_material = SubResource("ShaderMaterial_o6xl0")
 [sub_resource type="Environment" id="Environment_jyhfs"]
 background_mode = 2
 sky = SubResource("Sky_tipki")
+ambient_light_source = 3
+ambient_light_color = Color(0.8, 0.85, 1, 1)
+ambient_light_energy = 0.3
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_white = 6.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4gnqm"]
 
@@ -84,29 +90,21 @@ texture = SubResource("ViewportTexture_ig7tw")
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(1280, 720)
 
-[node name="proto" parent="SubViewport" instance=ExtResource("1_0wfyh")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.059221268, -2.0316753, -0.07819748)
-
 [node name="Player" parent="SubViewport" instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.199331)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.696434, 5.514617)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
 environment = SubResource("Environment_jyhfs")
 camera_attributes = SubResource("CameraAttributesPractical_4gnqm")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -0.0013438896, 0.9999991, 0, -0.9999991, -0.0013438896, 9.178489, 18.078125, 0.5458574)
-visible = false
-spot_range = 17.986494
-spot_attenuation = -0.5
-spot_angle = 10.168414
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
-light_energy = 2.531
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 20, 0)
 
-[node name="WeaponPickup" parent="." instance=ExtResource("6_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2833614)
+[node name="WeaponPickup2" parent="SubViewport" instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.157365, 4.844249, -3.8175206)
 
-[node name="WeaponPickup2" parent="." instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+[node name="WeaponPickup" parent="SubViewport" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9900045, -7.5886707)
+
+[node name="PrototypeLevel" parent="SubViewport" instance=ExtResource("5_tbgi4")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

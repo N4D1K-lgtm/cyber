@@ -46,16 +46,16 @@ void fragment() {
     }}
 
 void light() {
-	// Attenuation.
+	// Attenuation (includes shadows).
 	float attenuation = 1.0f;
 	if (use_attenuation) {
 		attenuation = ATTENUATION;
 	}
-	
-	// Diffuse lighting.
+
+	// Diffuse lighting with shadow integration.
 	float NdotL = dot(NORMAL, LIGHT);
-	float diffuse_amount = NdotL + (attenuation - 1.0) + wrap;
-	//float diffuse_amount = NdotL * attenuation + wrap;
+	// Combine lighting and shadows BEFORE stepping for cleaner result
+	float diffuse_amount = (NdotL * attenuation) + wrap;
 	diffuse_amount *= steepness;
 	float cuts_inv = 1.0f / float(cuts);
 	float diffuse_stepped = clamp(diffuse_amount + mod(1.0f - diffuse_amount, cuts_inv), 0.0f, 1.0f);
