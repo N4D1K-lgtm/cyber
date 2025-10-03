@@ -85,7 +85,7 @@ texture = SubResource("ViewportTexture_ig7tw")
 size = Vector2i(1280, 720)
 
 [node name="proto" parent="SubViewport" instance=ExtResource("1_0wfyh")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -2, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.059221268, -2.0316753, -0.07819748)
 
 [node name="Player" parent="SubViewport" instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.199331)
