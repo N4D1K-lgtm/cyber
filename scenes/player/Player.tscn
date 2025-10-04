@@ -20,24 +20,51 @@
 script = ExtResource("3_ov1oi")
 move_speed = 10.4
 move_acceleration = 63.6
-move_friction = 20.900000000000002
+move_friction = 20.9
 move_air_control = 0.42
 sprint_speed_multiplier = 2.85
 sprint_fov_increase = 20.0
+sprint_transition_time = 0.2
 sprint_uses_stamina = true
-camera_mouse_sensitivity = null
-camera_pitch_limit_down = null
-camera_pitch_limit_up = null
-camera_smoothing = null
-camera_fov_speed_scale = null
-camera_base_fov = null
-camera_max_fov_bonus = null
-camera_bob_intensity = null
-camera_bob_frequency = null
+sprint_max_stamina = 100.0
+sprint_stamina_drain = 20.0
+sprint_stamina_regen = 10.0
+jump_velocity = 4.5
+jump_coyote_time = 0.1
+jump_buffer_time = 0.15
+jump_fall_gravity_multiplier = 1.5
+jump_allow_bunny_hop = false
+jump_bunny_hop_multiplier = 1.1
+slide_enabled = true
+slide_velocity = 10.0
+slide_duration = 0.8
+slide_cooldown = 1.0
+slide_min_speed = 3.0
+slide_friction = 5.0
+crouch_enabled = true
+crouch_speed_multiplier = 0.5
+crouch_height_scale = 0.5
+crouch_transition_time = 0.2
+camera_mouse_sensitivity = 0.002
+camera_pitch_limit_down = 85.0
+camera_pitch_limit_up = 85.0
+camera_smoothing = 0.0
+camera_fov_speed_scale = false
+camera_base_fov = 90.0
+camera_max_fov_bonus = 10.0
+camera_bob_intensity = 0.1
+camera_bob_frequency = 10.0
+advanced_max_slope_angle = 45.0
+advanced_step_height = 0.3
+advanced_floor_snap_length = 0.5
+advanced_custom_gravity = 0.0
+net_enable_prediction = true
+net_enable_reconciliation = true
+net_state_buffer_size = 60
 metadata/_custom_type_script = "uid://c7cv5pih7iipv"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c3xxp"]
-height = 1.6572266
+height = 1.65723
 
 [sub_resource type="QuadMesh" id="QuadMesh_npwbq"]
 material = ExtResource("2_524rm")
@@ -59,22 +86,22 @@ camera_rig = NodePath("../Camera Rig")
 collision_shape = NodePath("../CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.6572266, 0.2218023)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.65723, 0.221802)
 shape = SubResource("CylinderShape3D_c3xxp")
 
 [node name="Gunner" parent="." instance=ExtResource("1_4kuee")]
 
 [node name="Camera Rig" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1549835, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.15498, 0)
 
 [node name="MainCamera" type="Camera3D" parent="Camera Rig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04050088, -0.37550044)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0405009, -0.3755)
 current = true
 fov = 60.0
 size = 10.0
 
 [node name="WeaponAnimator" type="Node3D" parent="Camera Rig/MainCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.1144826, 0.37550044)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.11448, 0.3755)
 script = ExtResource("3_npwbq")
 
 [node name="PostProcessQuad" type="MeshInstance3D" parent="Camera Rig/MainCamera"]
