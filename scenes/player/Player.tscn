@@ -1,67 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx34ee3j7dd4v"]
+[gd_scene load_steps=10 format=3 uid="uid://dx34ee3j7dd4v"]
 
 [ext_resource type="PackedScene" uid="uid://de0qw0ekldddp" path="res://scenes/mechs/gunner/gunner.tscn" id="1_4kuee"]
 [ext_resource type="Script" uid="uid://bs6tfvfgfqlqn" path="res://scenes/player/player.gd" id="1_tpg5x"]
 [ext_resource type="Material" uid="uid://bx3seoxko2mt3" path="res://materials/edge_detection.tres" id="2_524rm"]
-[ext_resource type="Script" uid="uid://cq8s2fkyw42is" path="res://scripts/movement/movement_state_machine.gd" id="2_ov1oi"]
 [ext_resource type="Script" uid="uid://dfsqpcgbaa3hf" path="res://scenes/objects/weapons/WeaponAnimator.gd" id="3_npwbq"]
-[ext_resource type="Script" uid="uid://c7cv5pih7iipv" path="res://scripts/movement/movement_config.gd" id="3_ov1oi"]
 [ext_resource type="Script" uid="uid://dxcc1njni138g" path="res://scripts/postprocessing_quad_setup.gd" id="3_tpg5x"]
-[ext_resource type="Script" uid="uid://dy31xmrw2k1a8" path="res://scripts/movement/states/walk_state.gd" id="4_8qjgm"]
-[ext_resource type="Script" uid="uid://blo0qolp2u3nt" path="res://scripts/movement/states/sprint_state.gd" id="5_ejd4k"]
 [ext_resource type="Texture2D" uid="uid://dkbmbiyftxxnv" path="res://textures/crosshairs/PNG/Outline/crosshair019.png" id="5_tpg5x"]
-[ext_resource type="Script" uid="uid://bi58vyep2g1ql" path="res://scripts/movement/states/slide_state.gd" id="6_2xrq6"]
 [ext_resource type="Script" uid="uid://bj7dph0ml5vc8" path="res://scenes/player/weapon_controller.gd" id="6_v42im"]
-[ext_resource type="Script" uid="uid://ccaau65t1gk8v" path="res://scripts/movement/states/jump_state.gd" id="7_pi3ps"]
-[ext_resource type="Script" uid="uid://d4jjhwx0ai5go" path="res://scripts/movement/states/fall_state.gd" id="8_kswpp"]
-[ext_resource type="Script" uid="uid://gt5fh4r4r2q1" path="res://scripts/movement/player_movement_bridge.gd" id="9_rn7t0"]
-
-[sub_resource type="Resource" id="Resource_rn7t0"]
-script = ExtResource("3_ov1oi")
-move_speed = 10.4
-move_acceleration = 63.6
-move_friction = 20.9
-move_air_control = 0.42
-sprint_speed_multiplier = 2.85
-sprint_fov_increase = 20.0
-sprint_transition_time = 0.2
-sprint_uses_stamina = true
-sprint_max_stamina = 100.0
-sprint_stamina_drain = 20.0
-sprint_stamina_regen = 10.0
-jump_velocity = 4.5
-jump_coyote_time = 0.1
-jump_buffer_time = 0.15
-jump_fall_gravity_multiplier = 1.5
-jump_allow_bunny_hop = false
-jump_bunny_hop_multiplier = 1.1
-slide_enabled = true
-slide_velocity = 10.0
-slide_duration = 0.8
-slide_cooldown = 1.0
-slide_min_speed = 3.0
-slide_friction = 5.0
-crouch_enabled = true
-crouch_speed_multiplier = 0.5
-crouch_height_scale = 0.5
-crouch_transition_time = 0.2
-camera_mouse_sensitivity = 0.002
-camera_pitch_limit_down = 85.0
-camera_pitch_limit_up = 85.0
-camera_smoothing = 0.0
-camera_fov_speed_scale = false
-camera_base_fov = 90.0
-camera_max_fov_bonus = 10.0
-camera_bob_intensity = 0.1
-camera_bob_frequency = 10.0
-advanced_max_slope_angle = 45.0
-advanced_step_height = 0.3
-advanced_floor_snap_length = 0.5
-advanced_custom_gravity = 0.0
-net_enable_prediction = true
-net_enable_reconciliation = true
-net_state_buffer_size = 60
-metadata/_custom_type_script = "uid://c7cv5pih7iipv"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c3xxp"]
 height = 1.65723
@@ -73,17 +18,9 @@ material = ExtResource("2_524rm")
 script = ExtResource("1_tpg5x")
 
 [node name="MovementStateMachine" type="Node" parent="."]
-script = ExtResource("2_ov1oi")
-movement_config = SubResource("Resource_rn7t0")
-states = [ExtResource("4_8qjgm"), ExtResource("5_ejd4k"), ExtResource("6_2xrq6"), ExtResource("7_pi3ps"), ExtResource("8_kswpp")]
 metadata/_custom_type_script = "uid://cq8s2fkyw42is"
 
-[node name="PlayerMovementBridge" type="Node" parent="." node_paths=PackedStringArray("camera", "movement_sm", "camera_rig", "collision_shape")]
-script = ExtResource("9_rn7t0")
-camera = NodePath("../Camera Rig/MainCamera")
-movement_sm = NodePath("../MovementStateMachine")
-camera_rig = NodePath("../Camera Rig")
-collision_shape = NodePath("../CollisionShape3D")
+[node name="PlayerMovementBridge" type="Node" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.65723, 0.221802)

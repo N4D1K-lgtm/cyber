@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmatjv0bdq1qu"]
+[gd_scene load_steps=13 format=3 uid="uid://dmatjv0bdq1qu"]
 
 [ext_resource type="PackedScene" uid="uid://dx34ee3j7dd4v" path="res://scenes/player/Player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbgedt0davogt" path="res://scenes/main.gd" id="1_sugp2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Shader" uid="uid://dn4mt61v2k4je" path="res://addons/vaporwavesky/vaporwave.gdshader" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dgoi4qtf3q1q6" path="res://scenes/objects/weapons/guns/sniper/SniperPickup.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://blo41nuvemq2u" path="res://scenes/objects/weapons/guns/pistol/PistolPickup.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://de0qw0ekldddp" path="res://scenes/mechs/gunner/gunner.tscn" id="8_tipki"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ig7tw"]
 viewport_path = NodePath("SubViewport")
@@ -89,10 +88,10 @@ mouse_filter = 0
 texture = SubResource("ViewportTexture_ig7tw")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(1280, 720)
+size = Vector2i(640, 360)
 
 [node name="Player" parent="SubViewport" instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.69643, 5.51462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.696434, 5.514617)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
 environment = SubResource("Environment_jyhfs")
@@ -102,13 +101,10 @@ camera_attributes = SubResource("CameraAttributesPractical_4gnqm")
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 20, 0)
 
 [node name="WeaponPickup2" parent="SubViewport" instance=ExtResource("6_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15736, 4.84425, -3.81752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.157365, 4.844249, -3.8175206)
 
 [node name="WeaponPickup" parent="SubViewport" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.99, -7.58867)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9900045, -7.5886707)
 
 [node name="PrototypeLevel" parent="SubViewport" instance=ExtResource("5_tbgi4")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-
-[node name="Gunner" parent="." instance=ExtResource("8_tipki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.15242, 0)
